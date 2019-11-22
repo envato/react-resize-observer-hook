@@ -1,0 +1,26 @@
+{
+  "name": "@envato/react-resize-observer-hook",
+  "version": "0.1.0",
+  "description": "Observe multiple React components with a single ResizeObserver.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/envato/react-resize-observer-hook.git"
+  },
+  "keywords": [
+    "react-hooks",
+    "hooks",
+    "react",
+    "performance",
+    "resize-observer"
+  ],
+  "author": "Envato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/envato/react-resize-observer-hook/issues"
+  },
+  "homepage": "https://github.com/envato/react-resize-observer-hook#readme"
+}
