@@ -7,7 +7,7 @@ This package provides you with:
 * a single `ResizeObserver` instance placed inside a React Context;
 * a React Hook to observe any element's changes in size.
 
-This allow you to know the size of each observed element.
+This allows you to know the size of each observed element.
 
 # Developer status
 
