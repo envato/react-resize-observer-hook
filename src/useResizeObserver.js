@@ -1,5 +1,5 @@
 import { useContext, useCallback, useRef, useState } from 'react';
-import ResizeObserverContext from './resizeObserverContext';
+import { ResizeObserverContext } from './resizeObserverContext';
 
 /**
  * Observe an element's width and height.
