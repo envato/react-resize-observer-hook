@@ -1,4 +1,4 @@
-# React `ResizeObserver` Hook &amp; Context
+# React `ResizeObserver` Hook &amp; Context &middot; [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE-OF-CONDUCT.md)
 
 > Observe multiple React components with a single ResizeObserver.
 
