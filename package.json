@@ -2,9 +2,16 @@
   "name": "@envato/react-resize-observer-hook",
   "version": "0.1.0",
   "description": "Observe multiple React components with a single ResizeObserver.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
+  "source": "index.js",
   "scripts": {
-    "test": "jest"
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "prepare": "npm run build",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -23,9 +30,16 @@
     "url": "https://github.com/envato/react-resize-observer-hook/issues"
   },
   "homepage": "https://github.com/envato/react-resize-observer-hook#readme",
-  "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/preset-env": "^7.7.1",
+    "@testing-library/react-hooks": "^3.2.1",
+    "jest": "^24.9.0",
+    "microbundle": "^0.11.0",
+    "react": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "rollup": "^0.68.2"
+  }
 }
