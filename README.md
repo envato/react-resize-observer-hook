@@ -58,3 +58,19 @@ const ObservedDiv = () => {
   return <div ref={ref}>This element is {width}px wide and {height}px high.</div>
 }
 ```
+
+# Maintainers
+
+* [Marc Dingena](https://github.com/mdingena) (owner)
+
+# Contributing
+
+For bug fixes, documentation changes, and small features:
+
+1. Fork this repository.
+1. Create your feature branch (git checkout -b my-new-feature).
+1. Commit your changes (git commit -am 'Add some feature').
+1. Push to the branch (git push origin my-new-feature).
+1. Create a new Pull Request.
+
+**For larger new features**: Do everything as above, but first also make contact with the project maintainers to be sure your change fits with the project direction and you won't be wasting effort going in the wrong direction.
