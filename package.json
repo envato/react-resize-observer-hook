@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Observe multiple React components with a single ResizeObserver.",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
   "source": "index.js",
   "scripts": {
