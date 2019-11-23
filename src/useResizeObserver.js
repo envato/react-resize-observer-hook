@@ -16,10 +16,6 @@ const useResizeObserver = ({
 } = {}) => {
   const resizeObserver = useContext(ResizeObserverContext);
 
-  if (!resizeObserver.value) {
-    throw new Error('Invalid ResizeObserverContext.Provider value. Make sure you assign a Provider value with a ResizeObserver created with createResizeObserver.');
-  }
-
   const [width, changeWidth] = useState(initialWidth);
   const [height, changeHeight] = useState(initialHeight);
 
