@@ -4,9 +4,9 @@ import { ResizeObserverContext } from './resizeObserverContext';
 /**
  * Observe an element's width and height.
  * @argument {Object} [options] - Options to initialise this observed element with.
- * @argument {Number} [options.initialHeight] - Sets element's initial height. Useful for server-side rendering.
+ * @argument {String} [options.boxModel] - The observed box model. One of: 'contentRect', 'borderBoxSize', 'contentBoxSize'.
  * @argument {Number} [options.initialWidth] - Sets element's initial width. Useful for server-side rendering.
- * @argument {String} [options.boxModel] - The observed box model. One of
+ * @argument {Number} [options.initialHeight] - Sets element's initial height. Useful for server-side rendering.
  * @returns {Array} Array with a reference to observed element, the observed width, and the observed height.
  */
 const useResizeObserver = ({
