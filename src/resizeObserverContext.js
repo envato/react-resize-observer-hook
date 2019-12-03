@@ -4,7 +4,7 @@ const ResizeObserverContext = createContext(null);
 
 /**
  * Bootstraps a new ResizeObserver with a callback function used by the `useResizeObserver` hook.
- * @param {ResizeObserver} [ResizeObserver] - Optional `ResizeObserver` constructor, for example from a ponyfill. Defaults to `window.ResizeObserver`. CAUTION: https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver
+ * @argument {ResizeObserver} [ResizeObserver] - Optional `ResizeObserver` constructor, for example from a ponyfill. Defaults to `window.ResizeObserver`. CAUTION: https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver
  * @returns {ResizeObserver} Bootstrapped ResizeObserver to assign to `ResizeObserverContext.Provider`'s value.
  */
 const createResizeObserver = (ResizeObserver = window.ResizeObserver) => {
