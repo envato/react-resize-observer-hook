@@ -10,9 +10,9 @@ import { ResizeObserverContext } from './resizeObserverContext';
  * @returns {Array} Array with a reference to observed element, the observed width, and the observed height.
  */
 const useResizeObserver = ({
+  boxModel = 'contentRect', // https://caniuse.com/#feat=mdn-api_resizeobserverentry_contentrect
   initialWidth = 1,
-  initialHeight = 1,
-  boxModel = 'contentRect' // https://caniuse.com/#feat=mdn-api_resizeobserverentry_contentrect
+  initialHeight = 1
 } = {}) => {
   const resizeObserver = useContext(ResizeObserverContext);
 
