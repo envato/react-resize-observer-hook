@@ -19,12 +19,12 @@ const createResizeObserver = ResizeObserver => {
 /**
  * Bootstraps a ResizeObserverContext.Provider with a ResizeObserver instance.
  * @argument {Object} props
+ * @argument {ResizeObserver} [props.ponyfill=undefined] - Optional `ResizeObserver` constructor, for example from a ponyfill. Defaults to `window.ResizeObserver`. CAUTION: https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver
  * @argument {JSX} props.children - This component's children.
- * @argument {ResizeObserver} props.resizeObserver - Optional `ResizeObserver` constructor, for example from a ponyfill. Defaults to `window.ResizeObserver`. CAUTION: https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver
  * @returns {JSX} Context.Provider bootstrapped with a ResizeObserver instance.
  */
-const Provider = ({ resizeObserver = window.ResizeObserver, children }) => {
-  const instance = createResizeObserver(resizeObserver);
+const Provider = ({ ponyfill = undefined, children }) => {
+  const instance = createResizeObserver(ponyfill || window.ResizeObserver);
 
   return (
     <ResizeObserverContext.Provider value={instance}>

@@ -30,18 +30,20 @@ const App = () => (
   </ResizeObserverProvider>
 )
 ```
-**Caution**: By default, `Provider` instantiates a `window.ResizeObserver`. [`window.ResizeObserver` currently has weak browser support](https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver). You may pass a `ResizeObserver` constructor to `Provider` to use instead of `window.ResizeObserver`. I recommend this ponyfill:
+**Caution**: By default, `Provider` instantiates a `window.ResizeObserver`. [`window.ResizeObserver` currently has weak browser support](https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver). You may pass a `ResizeObserver` constructor to `Provider` to use instead of `window.ResizeObserver`. I recommend this [ponyfill](https://github.com/sindresorhus/ponyfill):
 
 ```javascript
 import { Provider as ResizeObserverProvider } from '@envato/react-resize-observer-hook';
 import ResizeObserver from '@juggle/resize-observer'; // Ponyfill
 
 const App = () => (
-  <ResizeObserverProvider resizeObserver={ResizeObserver}>
+  <ResizeObserverProvider ponyfill={ResizeObserver}>
     ...
   </ResizeObserverProvider>
 )
 ```
+
+Otherwise, if you use a polyfill that monkey patches `window.ResizeObserver`, you may just use `<ResizeObserverProvider>` without props.
 
 ## Observe an element
 
