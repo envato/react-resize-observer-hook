@@ -4,8 +4,8 @@
 
 This package provides you with:
 
-* a single `ResizeObserver` instance placed inside a React Context;
-* a React Hook to observe any element's changes in size.
+* a context `Provider` with a `ResizeObserver` instance;
+* a `useResizeObserver` hook to observe any element's changes in size.
 
 This allows you to know the size of each observed element.
 
@@ -19,31 +19,27 @@ While this package has seen little action "in the wild", it has first been devel
 npm install --save @envato/react-resize-observer-hook
 ```
 
-## Set up ResizeObserverContext.Provider
+## Set up the Provider
 
 ```javascript
-import { ResizeObserverContext, createResizeObserver } from '@envato/react-resize-observer-hook';
-
-const resizeObserver = createResizeObserver();
+import { Provider as ResizeObserverProvider } from '@envato/react-resize-observer-hook';
 
 const App = () => (
-  <ResizeObserverContext.Provider value={resizeObserver}>
+  <ResizeObserverProvider>
     ...
-  </ResizeObserverContext.Provider>
+  </ResizeObserverProvider>
 )
 ```
-**Caution**: [`ResizeObserver` currently has weak browser support](https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver). You may pass a `ResizeObserver` constructor to `createResizeObserver` to use instead of `window.ResizeObserver`. I recommend this ponyfill:
+**Caution**: By default, `Provider` instantiates a `window.ResizeObserver`. [`window.ResizeObserver` currently has weak browser support](https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver). You may pass a `ResizeObserver` constructor to `Provider` to use instead of `window.ResizeObserver`. I recommend this ponyfill:
 
 ```javascript
-import { ResizeObserverContext, createResizeObserver } from '@envato/react-resize-observer-hook';
+import { Provider as ResizeObserverProvider } from '@envato/react-resize-observer-hook';
 import ResizeObserver from '@juggle/resize-observer'; // Ponyfill
 
-const resizeObserver = createResizeObserver(ResizeObserver);
-
 const App = () => (
-  <ResizeObserverContext.Provider value={resizeObserver}>
+  <ResizeObserverProvider resizeObserver={ResizeObserver}>
     ...
-  </ResizeObserverContext.Provider>
+  </ResizeObserverProvider>
 )
 ```
 
