@@ -16,7 +16,7 @@ While this package has seen little action "in the wild", it has first been devel
 # Usage
 
 ```shell
-npm install --save @envato/react-resize-observer-hook
+npm install @envato/react-resize-observer-hook
 ```
 
 ## Set up the Provider
