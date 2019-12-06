@@ -1,6 +1,6 @@
 {
   "name": "@envato/react-resize-observer-hook",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Observe multiple React components with a single ResizeObserver.",
   "main": "dist/index.js",
   "scripts": {
