@@ -4,8 +4,8 @@
 
 This package provides you with:
 
-* a context `Provider` with a `ResizeObserver` instance;
-* a `useResizeObserver` hook to observe any element's changes in size.
+* a context `<Provider>` with a `ResizeObserver` instance;
+* a `useResizeObserver()` hook to observe any element's changes in size.
 
 This allows you to know the size of each observed element.
 
@@ -28,9 +28,10 @@ const App = () => (
   <ResizeObserverProvider>
     ...
   </ResizeObserverProvider>
-)
+);
 ```
-**Caution**: By default, `Provider` instantiates a `window.ResizeObserver`. [`window.ResizeObserver` currently has weak browser support](https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver). You may pass a `ResizeObserver` constructor to `Provider` to use instead of `window.ResizeObserver`. I recommend this [ponyfill](https://github.com/sindresorhus/ponyfill):
+
+⚠️ **Caution**: `Provider` instantiates a `window.ResizeObserver` by default. [`window.ResizeObserver` currently has weak browser support](https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver). You may pass a `ResizeObserver` constructor to `Provider` to use instead of `window.ResizeObserver`. I recommend [ponyfilling](https://github.com/sindresorhus/ponyfill) using [`@juggle/resize-observer`](https://github.com/juggle/resize-observer). You can also [monkey patch](https://en.wikipedia.org/wiki/Monkey_patch) `window.ResizeObserver` and use `Provider` without the `ponyfill` prop.
 
 ```javascript
 import { Provider as ResizeObserverProvider } from '@envato/react-resize-observer-hook';
@@ -40,10 +41,8 @@ const App = () => (
   <ResizeObserverProvider ponyfill={ResizeObserver}>
     ...
   </ResizeObserverProvider>
-)
+);
 ```
-
-Otherwise, if you use a polyfill that monkey patches `window.ResizeObserver`, you may just use `<ResizeObserverProvider>` without props.
 
 ## Observe an element
 
@@ -51,11 +50,16 @@ Otherwise, if you use a polyfill that monkey patches `window.ResizeObserver`, yo
 import { useResizeObserver } from '@envato/react-resize-observer-hook';
 
 const ObservedDiv = () => {
-  const [ref, width, height] = useResizeObserver();
+  const [ref, observedEntry] = useResizeObserver();
+  const { width, height } = observedEntry.contentRect;
 
   return <div ref={ref}>This element is {width}px wide and {height}px high.</div>
-}
+};
 ```
+
+Depending on your implementation of `ResizeObserver`, the internal `ResizeObserverEntry` can contain size information about multiple "boxes" of the observed element.
+
+See [MDN reference guide](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) for further information.
 
 # Maintainers
 
