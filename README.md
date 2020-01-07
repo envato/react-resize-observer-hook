@@ -57,7 +57,15 @@ const ObservedDiv = () => {
 };
 ```
 
-Depending on your implementation of `ResizeObserver`, the internal `ResizeObserverEntry` can contain size information about multiple "boxes" of the observed element.
+Depending on your implementation of `ResizeObserver`, the internal `ResizeObserverEntry` can contain size information about multiple "boxes" of the observed element. Observing these boxes instead of `contentRect` (default) can be done by passing an options object to the hook:
+
+```javascript
+const options = {
+  box: 'border-box'
+};
+
+const [ref, observedEntry] = useResizeObserver(options);
+```
 
 See [MDN reference guide](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) for further information.
 
