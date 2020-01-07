@@ -3,9 +3,11 @@ import { ResizeObserverContext } from './resizeObserverContext';
 
 /**
  * Observe an element's size.
+ * @argument {Object} options - Options object for `ResizeObserver.observe()`.
+ * @argument {String} options.box - The element's box to observe.
  * @returns {Array} Array with: a reference to observed element, a ResizeObserverEntry.
  */
-const useResizeObserver = () => {
+const useResizeObserver = (options = {}) => {
   const resizeObserver = useContext(ResizeObserverContext);
 
   const [observedEntry, setObservedEntry] = useState(null);
@@ -22,7 +24,7 @@ const useResizeObserver = () => {
 
     if (node) {
       node.handleResizeObservation = handleResizeObservation;
-      resizeObserver.observe(node);
+      resizeObserver.observe(node, options);
     }
 
     ref.current = node;
