@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./React-Breakpoints.svg" alt="React Breakpoints logo" />
+  <img width="200" src="./React-Breakpoints.png" alt="React Breakpoints logo" />
 </p>
 
 <h1 align="center">React ResizeObserver Hook</h1>
