@@ -1,4 +1,17 @@
-# React `ResizeObserver` Hook &amp; Context &middot; [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE-OF-CONDUCT.md)
+<p align="center">
+  <img src="./React-Breakpoints.svg" alt="React Breakpoints logo" />
+</p>
+
+<h1 align="center">React ResizeObserver Hook</h1>
+
+<p align="center">
+  <img alt="npm version" src="https://img.shields.io/npm/v/@envato/react-resize-observer-hook?style=for-the-badge" />
+  <img alt="react version" src="https://img.shields.io/npm/dependency-version/@envato/react-resize-observer-hook/dev/react?style=for-the-badge">
+  <img alt="license" src="https://img.shields.io/npm/l/@envato/react-resize-observer-hook?style=for-the-badge" />
+  <a href="CODE-OF-CONDUCT.md"><img alt="contributor covenant v2.0 adopted" src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg?style=for-the-badge" /></a>
+</p>
+
+---
 
 > Observe multiple React components with a single ResizeObserver.
 
@@ -9,17 +22,21 @@ This package provides you with:
 
 This allows you to know the size of each observed element.
 
-# Developer status
+# 🚧 Developer status
 
 While this package has seen little action "in the wild", it has first been developed and groomed elsewhere. As such, I don't expect a lot of changes conceptually. However, the API of this hook is not finalised and may change at any given time.
 
-# Usage
+# 📚 Docs
+
+This package was developed **and documented** as part of the [`@envato/react-breakpoints`](https://github.com/envato/react-breakpoints) package. It's separated into its own package because I believe it can be used separately if you don't need all the abstractions that React Breakpoints gives you. Please refer to the [React Breakpoints API Docs](https://github.com/envato/react-breakpoints/docs/api.md) for more details about `<Provider>` and `useResizeObserver()`.
+
+# ⚡️ Quick start
 
 ```shell
 npm install @envato/react-resize-observer-hook
 ```
 
-## Set up the Provider
+## Set up the provider
 
 ```javascript
 import { Provider as ResizeObserverProvider } from '@envato/react-resize-observer-hook';
@@ -31,18 +48,7 @@ const App = () => (
 );
 ```
 
-⚠️ **Caution**: `Provider` instantiates a `window.ResizeObserver` by default. [`window.ResizeObserver` currently has weak browser support](https://caniuse.com/#feat=mdn-api_resizeobserver_resizeobserver). You may pass a `ResizeObserver` constructor to `Provider` to use instead of `window.ResizeObserver`. I recommend [ponyfilling](https://github.com/sindresorhus/ponyfill) using [`@juggle/resize-observer`](https://github.com/juggle/resize-observer). You can also [monkey patch](https://en.wikipedia.org/wiki/Monkey_patch) `window.ResizeObserver` and use `Provider` without the `ponyfill` prop.
-
-```javascript
-import { Provider as ResizeObserverProvider } from '@envato/react-resize-observer-hook';
-import ResizeObserver from '@juggle/resize-observer'; // Ponyfill
-
-const App = () => (
-  <ResizeObserverProvider ponyfill={ResizeObserver}>
-    ...
-  </ResizeObserverProvider>
-);
-```
+⚠️ **Caution** — You may need to pass some props to `<Provider>` to increase browser support. Please refer to the [React Breakpoints API Docs](https://github.com/envato/react-breakpoints/docs/api.md#provider).
 
 ## Observe an element
 
