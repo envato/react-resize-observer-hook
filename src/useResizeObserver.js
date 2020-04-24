@@ -3,8 +3,8 @@ import { ResizeObserverContext } from './resizeObserverContext';
 
 /**
  * Observe an element's size.
- * @argument {Object} options - Options object for `ResizeObserver.observe()`.
- * @argument {String} options.box - The element's box to observe.
+ * @argument {Object} [options] - Options object for `ResizeObserver.observe()`.
+ * @argument {String} [options.box] - The element's box to observe.
  * @returns {Array} Array with: a reference to observed element, a ResizeObserverEntry.
  */
 const useResizeObserver = (options = {}) => {
