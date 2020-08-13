@@ -12,11 +12,11 @@
     "url": "git+https://github.com/envato/react-resize-observer-hook.git"
   },
   "keywords": [
+    "resize-observer",
     "react-hooks",
     "hooks",
     "react",
-    "performance",
-    "resize-observer"
+    "performance"
   ],
   "author": "marc.dingena@envato.com",
   "license": "MIT",
@@ -29,11 +29,47 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.6",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.8.3",
+    "@juggle/resize-observer": "^3.2.0",
+    "@types/react": "^16.9.46",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.7"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts}": [
+      "npx eslint --cache --fix",
+      "npx prettier --write"
+    ]
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "jsxSingleQuote": true,
+    "printWidth": 120,
+    "quoteProps": "preserve",
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none"
   }
 }
