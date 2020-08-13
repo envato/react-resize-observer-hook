@@ -1,5 +1,6 @@
 # dependencies
 /node_modules
+/src/resize-observer
 /.pnp
 .pnp.js
 
