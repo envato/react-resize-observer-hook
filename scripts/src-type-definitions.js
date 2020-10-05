@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
 
-const sourceRoot = path.resolve('node_modules/@juggle/resize-observer/');
+const sourceRoot = path.resolve('node_modules/@juggle/resize-observer');
 const destinationRoot = path.resolve('src/resize-observer');
 const files = [
   ['LICENSE', 'LICENSE'],
