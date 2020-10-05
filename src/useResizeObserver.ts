@@ -8,7 +8,7 @@ import { ResizeObserverOptions } from './resize-observer/ResizeObserverOptions';
 /**
  * Observe an element's size.
  * @argument {ResizeObserverOptions} [options] - Options object for `ResizeObserver.observe()`.
- * @returns {Array} Array with: a reference to observed element, a ResizeObserverEntry.
+ * @returns {[React.RefCallback<ExtendedElement | null>, ExtendedResizeObserverEntry | null]} Array with: a reference to observed element, a ResizeObserverEntry.
  */
 const useResizeObserver = (
   options: ResizeObserverOptions = {}
