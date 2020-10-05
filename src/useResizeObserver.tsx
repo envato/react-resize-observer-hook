@@ -1,6 +1,7 @@
 import { useContext, useCallback, useRef, useState } from 'react';
 import { ResizeObserverContext } from './ResizeObserverContext';
-import { ExtendedResizeObserverEntry, ExtendedElement } from './interfaces';
+import { ExtendedElement } from './ExtendedElement';
+import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 
 /**
  * Observe an element's size.

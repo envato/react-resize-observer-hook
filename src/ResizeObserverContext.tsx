@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import { ResizeObserver } from './resize-observer/ResizeObserver';
-import { ExtendedResizeObserverEntry } from './interfaces';
+import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 
 interface Constructable<T> {
   new (...args: any): T;
