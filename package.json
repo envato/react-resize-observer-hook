@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "Observe multiple React components with a single ResizeObserver.",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "src-type-definitions": "node scripts/src-type-definitions.js",
     "dist-type-definitions": "node scripts/dist-type-definitions.js",
