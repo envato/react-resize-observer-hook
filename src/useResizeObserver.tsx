@@ -2,6 +2,8 @@ import { useContext, useCallback, useRef, useState } from 'react';
 import { ResizeObserverContext } from './ResizeObserverContext';
 import { ExtendedElement } from './ExtendedElement';
 import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
+import { ResizeObserver } from './resize-observer/ResizeObserver';
+import { ResizeObserverOptions } from './resize-observer/ResizeObserverOptions';
 
 /**
  * Observe an element's size.
@@ -9,8 +11,10 @@ import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
  * @argument {String} [options.box] - The element's box to observe.
  * @returns {Array} Array with: a reference to observed element, a ResizeObserverEntry.
  */
-const useResizeObserver = (options = {}) => {
-  const resizeObserver = useContext(ResizeObserverContext);
+const useResizeObserver = (
+  options: ResizeObserverOptions = {}
+): [React.RefCallback<ExtendedElement | null>, ExtendedResizeObserverEntry | null] => {
+  const resizeObserver = useContext<ResizeObserver | null>(ResizeObserverContext);
 
   const [observedEntry, setObservedEntry] = useState<ExtendedResizeObserverEntry | null>(null);
 
@@ -22,13 +26,13 @@ const useResizeObserver = (options = {}) => {
   const setRef = useCallback(
     node => {
       if (ref.current) {
-        resizeObserver.unobserve(ref.current);
+        resizeObserver?.unobserve(ref.current);
         delete ref.current.onResizeObservation;
       }
 
       if (node) {
         node.onResizeObservation = handleResizeObservation;
-        resizeObserver.observe(node, options);
+        resizeObserver?.observe(node, options);
       }
 
       ref.current = node;
