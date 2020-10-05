@@ -7,7 +7,7 @@
   "scripts": {
     "src-type-definitions": "node scripts/src-type-definitions.js",
     "dist-type-definitions": "node scripts/dist-type-definitions.js",
-    "build": "npm run src-type-definitions && npx tsc && npm run dist-type-definitions",
+    "build": "rimraf dist/ && npm run src-type-definitions && npx tsc && npm run dist-type-definitions",
     "prepare": "npm run build"
   },
   "repository": {
