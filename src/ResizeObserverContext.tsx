@@ -17,13 +17,7 @@ interface ExtendedWindow extends Window {
 
 declare var window: ExtendedWindow;
 
-const ResizeObserverContext: React.Context<ResizeObserver> = createContext(
-  new ResizeObserver(() => {
-    throw Error(
-      "Please instantiate the ResizeObserverContext.Provider value by using this package's <Provider> component."
-    );
-  })
-);
+const ResizeObserverContext = createContext<ResizeObserver | null>(null);
 
 /**
  * Bootstraps a new ResizeObserver with a callback function used by the `useResizeObserver` hook.
