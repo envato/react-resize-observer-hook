@@ -26,11 +26,7 @@ const createResizeObserver = ResizeObserver => {
 const Provider = ({ ponyfill = undefined, children }) => {
   const instance = createResizeObserver(ponyfill || window.ResizeObserver);
 
-  return (
-    <ResizeObserverContext.Provider value={instance}>
-      {children}
-    </ResizeObserverContext.Provider>
-  );
+  return <ResizeObserverContext.Provider value={instance}>{children}</ResizeObserverContext.Provider>;
 };
 
 export { ResizeObserverContext, createResizeObserver, Provider };

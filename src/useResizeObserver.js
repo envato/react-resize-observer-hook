@@ -16,19 +16,22 @@ const useResizeObserver = (options = {}) => {
 
   const ref = useRef(null);
 
-  const setRef = useCallback(node => {
-    if (ref.current) {
-      resizeObserver.unobserve(ref.current);
-      delete ref.current.handleResizeObservation;
-    }
+  const setRef = useCallback(
+    node => {
+      if (ref.current) {
+        resizeObserver.unobserve(ref.current);
+        delete ref.current.handleResizeObservation;
+      }
 
-    if (node) {
-      node.handleResizeObservation = handleResizeObservation;
-      resizeObserver.observe(node, options);
-    }
+      if (node) {
+        node.handleResizeObservation = handleResizeObservation;
+        resizeObserver.observe(node, options);
+      }
 
-    ref.current = node;
-  }, [resizeObserver]);
+      ref.current = node;
+    },
+    [resizeObserver, options]
+  );
 
   return [setRef, observedEntry];
 };
