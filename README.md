@@ -13,12 +13,12 @@
 
 ---
 
-> Observe multiple React components with a single ResizeObserver.
+> Observe multiple DOM elements with a single ResizeObserver.
 
 This package provides you with:
 
-* a context `<Provider>` with a `ResizeObserver` instance;
-* a `useResizeObserver()` hook to observe any element's changes in size.
+- a context `<Provider>` with a `ResizeObserver` instance;
+- a `useResizeObserver()` hook to observe any element's size changes.
 
 This allows you to know the size of each observed element.
 
@@ -41,14 +41,10 @@ npm install @envato/react-resize-observer-hook
 ```javascript
 import { Provider as ResizeObserverProvider } from '@envato/react-resize-observer-hook';
 
-const App = () => (
-  <ResizeObserverProvider>
-    ...
-  </ResizeObserverProvider>
-);
+const App = () => <ResizeObserverProvider>...</ResizeObserverProvider>;
 ```
 
-⚠️ **Caution** — You may need to pass some props to `<Provider>` to increase browser support. Please refer to the [React Breakpoints API Docs](https://github.com/envato/react-breakpoints/docs/api.md#provider).
+⚠️ **Caution** — You may need to pass some props to `<Provider>` to increase **browser support**. Please refer to the [React Breakpoints API Docs](https://github.com/envato/react-breakpoints/docs/api.md#provider).
 
 ## Observe an element
 
@@ -59,7 +55,11 @@ const ObservedDiv = () => {
   const [ref, observedEntry] = useResizeObserver();
   const { width, height } = observedEntry.contentRect;
 
-  return <div ref={ref}>This element is {width}px wide and {height}px high.</div>
+  return (
+    <div ref={ref}>
+      This element is {width}px wide and {height}px high.
+    </div>
+  );
 };
 ```
 
@@ -71,13 +71,16 @@ const options = {
 };
 
 const [ref, observedEntry] = useResizeObserver(options);
+
+const width = observedEntry.borderBox[0].inlineSize;
+const height = observedEntry.borderBox[0].blockSize;
 ```
 
 See [MDN reference guide](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) for further information.
 
 # Maintainers
 
-* [Marc Dingena](https://github.com/mdingena) (owner)
+- [Marc Dingena](https://github.com/mdingena) (owner)
 
 # Contributing
 

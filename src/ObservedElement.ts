@@ -1,5 +1,5 @@
 import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 
-export interface ExtendedElement extends Element {
+export interface ObservedElement extends Element {
   onResizeObservation?: (resizeObserverEntry: ExtendedResizeObserverEntry) => void;
 }

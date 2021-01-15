@@ -1,26 +1,34 @@
 import { useContext, useCallback, useRef, useState } from 'react';
-import { ResizeObserverContext } from './ResizeObserverContext';
-import { ExtendedElement } from './ExtendedElement';
+import { Context } from './Context';
+import { ObservedElement } from './ObservedElement';
 import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
-import { ResizeObserver } from './resize-observer/ResizeObserver';
-import { ResizeObserverOptions } from './resize-observer/ResizeObserverOptions';
 
 /**
- * Observe an element's size.
- * @argument {ResizeObserverOptions} [options] - Options object for `ResizeObserver.observe()`.
- * @returns {[React.RefCallback<ExtendedElement | null>, ExtendedResizeObserverEntry | null]} Array with: a reference to observed element, a ResizeObserverEntry.
+ * See API Docs: {@linkcode https://github.com/envato/react-breakpoints/blob/master/docs/api.md#useresizeobserver|useResizeObserver}
+ *
+ * Returns a React callback ref to attach to a DOM element. It also returns
+ * a resize observation entry every time the observed element changes size.
+ * This causes the component that uses `useResizeObserver` to rerender.
+ * @example
+ * const [ref, observedEntry] = useResizeObserver(options);
+ * const observedWidth = observedEntry.borderBoxSize[0].inlineSize;
+ * return (
+ *   <div ref={ref}>
+ *     This container is {observedWidth}px wide.
+ *   </div>
+ * );
  */
-const useResizeObserver = (
+export const useResizeObserver = (
   options: ResizeObserverOptions = {}
-): [React.RefCallback<ExtendedElement | null>, ExtendedResizeObserverEntry | null] => {
-  const resizeObserver = useContext<ResizeObserver | null>(ResizeObserverContext);
+): [React.RefCallback<ObservedElement | null>, ExtendedResizeObserverEntry | null] => {
+  const resizeObserver = useContext<ResizeObserver | null>(Context);
 
   const [observedEntry, setObservedEntry] = useState<ExtendedResizeObserverEntry | null>(null);
 
   const handleResizeObservation = (resizeObserverEntry: ExtendedResizeObserverEntry) =>
     setObservedEntry(resizeObserverEntry);
 
-  const ref = useRef<ExtendedElement | null>(null);
+  const ref = useRef<ObservedElement | null>(null);
 
   const setRef = useCallback(
     node => {
@@ -41,5 +49,3 @@ const useResizeObserver = (
 
   return [setRef, observedEntry];
 };
-
-export { useResizeObserver };

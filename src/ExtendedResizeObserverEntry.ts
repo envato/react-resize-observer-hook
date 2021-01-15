@@ -1,6 +1,5 @@
-import { ExtendedElement } from './ExtendedElement';
-import { ResizeObserverEntry } from './resize-observer/ResizeObserverEntry';
+import { ObservedElement } from './ObservedElement';
 
 export interface ExtendedResizeObserverEntry extends ResizeObserverEntry {
-  target: ExtendedElement;
+  target: ObservedElement;
 }

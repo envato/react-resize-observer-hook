@@ -5,9 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "src-type-definitions": "node scripts/src-type-definitions.js",
-    "dist-type-definitions": "node scripts/dist-type-definitions.js",
-    "build": "rimraf dist/ && npm run src-type-definitions && npx tsc && npm run dist-type-definitions",
+    "build": "tsc -b",
     "prepare": "npm run build"
   },
   "repository": {
@@ -32,25 +30,23 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@juggle/resize-observer": "^3.2.0",
-    "@types/react": "^16.9.46",
-    "@typescript-eslint/eslint-plugin": "^2.34.0",
-    "@typescript-eslint/parser": "^2.34.0",
+    "@types/react": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-react-app": "^5.2.1",
-    "eslint-plugin-flowtype": "^4.7.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^2.5.1",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^3.9.7"
+    "eslint": "^7.17.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.7",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "typescript": "^4.2.0-beta"
   },
   "eslintConfig": {
     "extends": "react-app"
