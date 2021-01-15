@@ -24,7 +24,7 @@ This allows you to know the size of each observed element.
 
 # 🚧 Developer status
 
-While this package has seen little action "in the wild", it has first been developed and groomed elsewhere. As such, I don't expect a lot of changes conceptually. However, the API of this hook is not finalised and may change at any given time.
+Several projects within Envato are currently using this package, giving me confidence that the API is clear and the code adds value. The package is still in an early stage, but exposure to "the wild" will help reveal more edge-cases and hopefully make the package more robust overall.
 
 # 📚 Docs
 
