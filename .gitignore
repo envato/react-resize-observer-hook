@@ -1,6 +1,5 @@
 # dependencies
 /node_modules
-/src/resize-observer
 /.pnp
 .pnp.js
 package-lock.json
