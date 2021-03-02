@@ -6,7 +6,7 @@
 
 <p align="center">
   <img alt="npm version" src="https://img.shields.io/npm/v/@envato/react-resize-observer-hook?style=for-the-badge" />
-  <img alt="react version" src="https://img.shields.io/npm/dependency-version/@envato/react-resize-observer-hook/dev/react?style=for-the-badge">
+  <img alt="react version" src="https://img.shields.io/npm/dependency-version/@envato/react-resize-observer-hook/peer/react?style=for-the-badge">
   <img alt="license" src="https://img.shields.io/npm/l/@envato/react-resize-observer-hook?style=for-the-badge" />
   <a href="CODE-OF-CONDUCT.md"><img alt="contributor covenant v2.0 adopted" src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg?style=for-the-badge" /></a>
 </p>
