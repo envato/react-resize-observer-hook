@@ -3,6 +3,12 @@ import { Context } from './Context';
 import { ObservedElement } from './ObservedElement';
 import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 
+const boxOptions = {
+  BORDER_BOX: 'border-box', // https://caniuse.com/mdn-api_resizeobserverentry_borderboxsize
+  CONTENT_BOX: 'content-box', // https://caniuse.com/mdn-api_resizeobserverentry_contentboxsize
+  DEVICE_PIXEL_CONTENT_BOX: 'device-pixel-content-box' // https://github.com/w3c/csswg-drafts/pull/4476
+};
+
 /**
  * See API Docs: {@linkcode https://github.com/envato/react-breakpoints/blob/master/docs/api.md#useresizeobserver|useResizeObserver}
  *
@@ -25,8 +31,60 @@ export const useResizeObserver = (
 
   const [observedEntry, setObservedEntry] = useState<ExtendedResizeObserverEntry | null>(null);
 
-  const handleResizeObservation = (resizeObserverEntry: ExtendedResizeObserverEntry) =>
-    setObservedEntry(resizeObserverEntry);
+  const handleResizeObservation = useCallback(
+    (resizeObserverEntry: ExtendedResizeObserverEntry) => {
+      if (!observedEntry) return setObservedEntry(resizeObserverEntry);
+
+      let isIdentical = true;
+
+      switch (options.box) {
+        case boxOptions.BORDER_BOX:
+          isIdentical = resizeObserverEntry.borderBoxSize.every(
+            (boxSize, index) =>
+              boxSize.inlineSize === observedEntry.borderBoxSize[index].inlineSize &&
+              boxSize.blockSize === observedEntry.borderBoxSize[index].blockSize
+          );
+          break;
+
+        case boxOptions.CONTENT_BOX:
+          isIdentical = resizeObserverEntry.contentBoxSize.every(
+            (boxSize, index) =>
+              boxSize.inlineSize === observedEntry.contentBoxSize[index].inlineSize &&
+              boxSize.blockSize === observedEntry.contentBoxSize[index].blockSize
+          );
+          break;
+
+        case boxOptions.DEVICE_PIXEL_CONTENT_BOX:
+          /* TypeScript 4.2 is missing devicePixelContentBoxSize. */
+          if (typeof resizeObserverEntry.devicePixelContentBoxSize !== 'undefined') {
+            isIdentical = resizeObserverEntry.devicePixelContentBoxSize.every((boxSize, index) => {
+              if (typeof observedEntry.devicePixelContentBoxSize !== 'undefined') {
+                return (
+                  boxSize.inlineSize === observedEntry.devicePixelContentBoxSize[index].inlineSize &&
+                  boxSize.blockSize === observedEntry.devicePixelContentBoxSize[index].blockSize
+                );
+              } else {
+                throw Error('resizeObserverEntry does not contain devicePixelContentBoxSize.');
+              }
+            });
+          } else {
+            throw Error('resizeObserverEntry does not contain devicePixelContentBoxSize.');
+          }
+          break;
+
+        default:
+          if (
+            resizeObserverEntry.contentRect.width !== observedEntry.contentRect.width ||
+            resizeObserverEntry.contentRect.height !== observedEntry.contentRect.height
+          ) {
+            isIdentical = false;
+          }
+      }
+
+      if (!isIdentical) setObservedEntry(resizeObserverEntry);
+    },
+    [options.box, observedEntry]
+  );
 
   const ref = useRef<ObservedElement | null>(null);
 
@@ -44,7 +102,7 @@ export const useResizeObserver = (
 
       ref.current = node;
     },
-    [resizeObserver, options]
+    [resizeObserver, handleResizeObservation, options]
   );
 
   return [setRef, observedEntry];
