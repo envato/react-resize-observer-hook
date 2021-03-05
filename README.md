@@ -22,10 +22,6 @@ This package provides you with:
 
 This allows you to know the size of each observed element.
 
-# 🚧 Developer status
-
-Several projects within Envato are currently using this package, giving me confidence that the API is clear and the code adds value. The package is still in an early stage, but exposure to "the wild" will help reveal more edge-cases and hopefully make the package more robust overall.
-
 # 📚 Docs
 
 This package was developed **and documented** as part of the [`@envato/react-breakpoints`](https://github.com/envato/react-breakpoints) package. It's separated into its own package because I believe it can be used separately if you don't need all the abstractions that React Breakpoints gives you. Please refer to the [React Breakpoints API Docs](https://github.com/envato/react-breakpoints/docs/api.md) for more details about `<Provider>` and `useResizeObserver()`.
@@ -38,7 +34,7 @@ npm install @envato/react-resize-observer-hook
 
 ## Set up the provider
 
-```javascript
+```jsx
 import { Provider as ResizeObserverProvider } from '@envato/react-resize-observer-hook';
 
 const App = () => <ResizeObserverProvider>...</ResizeObserverProvider>;
@@ -48,7 +44,7 @@ const App = () => <ResizeObserverProvider>...</ResizeObserverProvider>;
 
 ## Observe an element
 
-```javascript
+```jsx
 import { useResizeObserver } from '@envato/react-resize-observer-hook';
 
 const ObservedDiv = () => {
