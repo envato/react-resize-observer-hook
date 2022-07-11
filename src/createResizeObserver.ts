@@ -1,4 +1,4 @@
-import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
+import type { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 
 /**
  * Creates a new ResizeObserver instance that works with the

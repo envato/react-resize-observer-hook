@@ -1,7 +1,7 @@
+import type { ObservedElement } from './ObservedElement';
+import type { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 import { useContext, useCallback, useRef, useState } from 'react';
 import { Context } from './Context';
-import { ObservedElement } from './ObservedElement';
-import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 
 const boxOptions = {
   BORDER_BOX: 'border-box', // https://caniuse.com/mdn-api_resizeobserverentry_borderboxsize
