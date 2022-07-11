@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "compile": "tsc --noEmit",
     "build": "tsc -b",
     "prepare": "npm run build"
   },
@@ -26,27 +27,27 @@
   },
   "homepage": "https://github.com/envato/react-resize-observer-hook#readme",
   "peerDependencies": {
-    "react": "16.8 - 17",
-    "react-dom": "16.8 - 17"
+    "react": ">= 16.8",
+    "react-dom": ">= 16.8"
   },
   "devDependencies": {
-    "@types/react": "^17.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.13.0",
-    "@typescript-eslint/parser": "^4.13.0",
+    "@types/react": "^17.0.47",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.17.0",
+    "eslint": "^7.32.0",
     "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-flowtype": "^5.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^4.3.7",
-    "lint-staged": "^10.5.3",
-    "prettier": "^2.2.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "typescript": "^4.2.2"
+    "eslint-plugin-flowtype": "^5.10.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.7.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.7.4"
   },
   "eslintConfig": {
     "extends": "react-app"

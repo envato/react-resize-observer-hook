@@ -1,8 +1,8 @@
-import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
+import type { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 
 /**
  * Creates a new ResizeObserver instance that works with the
- * {@linkcode https://github.com/envato/react-breakpoints/blob/master/docs/api.md#useresizeobserver|useResizeObserver}
+ * {@linkcode https://github.com/envato/react-breakpoints/blob/main/docs/api.md#useresizeobserver|useResizeObserver}
  * hook.
  * @example
  * const resizeObserverInstance = createResizeObserver(window.ResizeObserver);

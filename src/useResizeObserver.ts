@@ -1,16 +1,16 @@
+import type { ObservedElement } from './ObservedElement';
+import type { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 import { useContext, useCallback, useRef, useState } from 'react';
 import { Context } from './Context';
-import { ObservedElement } from './ObservedElement';
-import { ExtendedResizeObserverEntry } from './ExtendedResizeObserverEntry';
 
 const boxOptions = {
   BORDER_BOX: 'border-box', // https://caniuse.com/mdn-api_resizeobserverentry_borderboxsize
   CONTENT_BOX: 'content-box', // https://caniuse.com/mdn-api_resizeobserverentry_contentboxsize
-  DEVICE_PIXEL_CONTENT_BOX: 'device-pixel-content-box' // https://github.com/w3c/csswg-drafts/pull/4476
+  DEVICE_PIXEL_CONTENT_BOX: 'device-pixel-content-box' // https://caniuse.com/mdn-api_resizeobserverentry_devicepixelcontentboxsize
 };
 
 /**
- * See API Docs: {@linkcode https://github.com/envato/react-breakpoints/blob/master/docs/api.md#useresizeobserver|useResizeObserver}
+ * See API Docs: {@linkcode https://github.com/envato/react-breakpoints/blob/main/docs/api.md#useresizeobserver|useResizeObserver}
  *
  * Returns a React callback ref to attach to a DOM element. It also returns
  * a resize observation entry every time the observed element changes size.
@@ -55,21 +55,11 @@ export const useResizeObserver = (
           break;
 
         case boxOptions.DEVICE_PIXEL_CONTENT_BOX:
-          /* TypeScript 4.2 is missing devicePixelContentBoxSize. */
-          if (typeof resizeObserverEntry.devicePixelContentBoxSize !== 'undefined') {
-            isIdentical = resizeObserverEntry.devicePixelContentBoxSize.every((boxSize, index) => {
-              if (typeof observedEntry.devicePixelContentBoxSize !== 'undefined') {
-                return (
-                  boxSize.inlineSize === observedEntry.devicePixelContentBoxSize[index].inlineSize &&
-                  boxSize.blockSize === observedEntry.devicePixelContentBoxSize[index].blockSize
-                );
-              } else {
-                throw Error('resizeObserverEntry does not contain devicePixelContentBoxSize.');
-              }
-            });
-          } else {
-            throw Error('resizeObserverEntry does not contain devicePixelContentBoxSize.');
-          }
+          isIdentical = resizeObserverEntry.devicePixelContentBoxSize.every(
+            (boxSize, index) =>
+              boxSize.inlineSize === observedEntry.devicePixelContentBoxSize[index].inlineSize &&
+              boxSize.blockSize === observedEntry.devicePixelContentBoxSize[index].blockSize
+          );
           break;
 
         default:
