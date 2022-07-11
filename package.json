@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "compile": "tsc --noEmit",
     "build": "tsc -b",
     "prepare": "npm run build"
   },
