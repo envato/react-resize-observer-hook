@@ -7,7 +7,7 @@ interface ProviderProps {
 }
 
 /**
- * See API Docs: {@linkcode https://github.com/envato/react-breakpoints/blob/main/docs/api.md#provider|Provider}
+ * See API Docs: {@linkcode https://github.com/envato/react-breakpoints/blob/main/docs/api.md#provider Provider}
  *
  * Returns a React context provider with a ResizeObserver instance as its value.
  * Uses `window.ResizeObserver` to construct the instance if no `ponyfill` prop is provided.

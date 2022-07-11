@@ -10,7 +10,7 @@ const boxOptions = {
 };
 
 /**
- * See API Docs: {@linkcode https://github.com/envato/react-breakpoints/blob/main/docs/api.md#useresizeobserver|useResizeObserver}
+ * See API Docs: {@linkcode https://github.com/envato/react-breakpoints/blob/main/docs/api.md#useresizeobserver useResizeObserver}
  *
  * Returns a React callback ref to attach to a DOM element. It also returns
  * a resize observation entry every time the observed element changes size.
