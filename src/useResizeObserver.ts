@@ -6,7 +6,7 @@ import { Context } from './Context';
 const boxOptions = {
   BORDER_BOX: 'border-box', // https://caniuse.com/mdn-api_resizeobserverentry_borderboxsize
   CONTENT_BOX: 'content-box', // https://caniuse.com/mdn-api_resizeobserverentry_contentboxsize
-  DEVICE_PIXEL_CONTENT_BOX: 'device-pixel-content-box' // https://github.com/w3c/csswg-drafts/pull/4476
+  DEVICE_PIXEL_CONTENT_BOX: 'device-pixel-content-box' // https://caniuse.com/mdn-api_resizeobserverentry_devicepixelcontentboxsize
 };
 
 /**
@@ -55,21 +55,11 @@ export const useResizeObserver = (
           break;
 
         case boxOptions.DEVICE_PIXEL_CONTENT_BOX:
-          /* TypeScript 4.2 is missing devicePixelContentBoxSize. */
-          if (typeof resizeObserverEntry.devicePixelContentBoxSize !== 'undefined') {
-            isIdentical = resizeObserverEntry.devicePixelContentBoxSize.every((boxSize, index) => {
-              if (typeof observedEntry.devicePixelContentBoxSize !== 'undefined') {
-                return (
-                  boxSize.inlineSize === observedEntry.devicePixelContentBoxSize[index].inlineSize &&
-                  boxSize.blockSize === observedEntry.devicePixelContentBoxSize[index].blockSize
-                );
-              } else {
-                throw Error('resizeObserverEntry does not contain devicePixelContentBoxSize.');
-              }
-            });
-          } else {
-            throw Error('resizeObserverEntry does not contain devicePixelContentBoxSize.');
-          }
+          isIdentical = resizeObserverEntry.devicePixelContentBoxSize.every(
+            (boxSize, index) =>
+              boxSize.inlineSize === observedEntry.devicePixelContentBoxSize[index].inlineSize &&
+              boxSize.blockSize === observedEntry.devicePixelContentBoxSize[index].blockSize
+          );
           break;
 
         default:
