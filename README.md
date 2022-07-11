@@ -24,7 +24,7 @@ This allows you to know the size of each observed element.
 
 # 📚 Docs
 
-This package was developed **and documented** as part of the [`@envato/react-breakpoints`](https://github.com/envato/react-breakpoints) package. It's separated into its own package because I believe it can be used separately if you don't need all the abstractions that React Breakpoints gives you. Please refer to the [React Breakpoints API Docs](https://github.com/envato/react-breakpoints/docs/api.md) for more details about `<Provider>` and `useResizeObserver()`.
+This package was developed **and documented** as part of the [`@envato/react-breakpoints`](https://github.com/envato/react-breakpoints) package. It's separated into its own package because I believe it can be used separately if you don't need all the abstractions that React Breakpoints gives you. Please refer to the [React Breakpoints API Docs](https://github.com/envato/react-breakpoints/blob/main/docs/api.md) for more details about `<Provider>` and `useResizeObserver()`.
 
 # ⚡️ Quick start
 
@@ -40,7 +40,7 @@ import { Provider as ResizeObserverProvider } from '@envato/react-resize-observe
 const App = () => <ResizeObserverProvider>...</ResizeObserverProvider>;
 ```
 
-⚠️ **Caution** — You may need to pass some props to `<Provider>` to increase **browser support**. Please refer to the [React Breakpoints API Docs](https://github.com/envato/react-breakpoints/docs/api.md#provider).
+⚠️ **Caution** — You may need to pass some props to `<Provider>` to increase **browser support**. Please refer to the [React Breakpoints API Docs](https://github.com/envato/react-breakpoints/blob/main/docs/api.md#provider).
 
 ## Observe an element
 
